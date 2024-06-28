@@ -10,6 +10,11 @@ Bot = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 @Bot.on_chat_member_updated()
 async def member_left(client: Client, event: ChatMemberUpdated):
+    # Debugging: print event details
+    print(f"Chat Type: {event.chat.type}")
+    print(f"Old Status: {event.old_chat_member.status}")
+    print(f"New Status: {event.new_chat_member.status}")
+
     # Memastikan bahwa ini adalah sebuah channel
     if event.chat.type == "channel":
         old_status = event.old_chat_member.status
