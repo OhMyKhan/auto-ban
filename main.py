@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyrogram.types import ChatMemberUpdated, ChatMemberStatus, ChatType
+from pyrogram.types import ChatMemberUpdated, ChatType
 
 # Inisialisasi bot
 api_id = '28977113'
@@ -11,7 +11,11 @@ Bot = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 @Bot.on_chat_member_updated()
 async def member_left(client: Client, event: ChatMemberUpdated):
     if event.chat.type == ChatType.CHANNEL:
-        if event.old_chat_member.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.RESTRICTED] and event.new_chat_member.status == ChatMemberStatus.LEFT:
+        old_status = event.old_chat_member.status
+        new_status = event.new_chat_member.status
+        
+        # Check if the user left the channel
+        if old_status in ["member", "restricted"] and new_status == "left":
             user_id = event.old_chat_member.user.id
             chat_id = event.chat.id
             try:
