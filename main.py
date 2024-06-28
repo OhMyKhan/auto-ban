@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import ChatMemberUpdated
 
 # Inisialisasi bot
-api_id = '28977113'
+api_id = 28977113  # Pastikan ini adalah integer, bukan string
 api_hash = '63bb64a177f438aab3bf92d7371d4f92'
 bot_token = '7169782276:AAESklIoVNdHotshUtZO4AYq7wDGq70t9qM'
 
@@ -24,7 +24,7 @@ async def member_left(client: Client, event: ChatMemberUpdated):
             user_id = event.old_chat_member.user.id
             chat_id = event.chat.id
             try:
-                await client.ban_chat_member(chat_id=chat_id, user_id=user_id)
+                await client.kick_chat_member(chat_id=chat_id, user_id=user_id)
                 print(f"User {user_id} has been banned from the channel {chat_id}.")
             except Exception as e:
                 print(f"Failed to ban user {user_id} from channel {chat_id}: {e}")
