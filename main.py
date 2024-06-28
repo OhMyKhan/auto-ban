@@ -2,9 +2,9 @@ from pyrogram import Client, filters
 from pyrogram.types import ChatMemberUpdated, ChatMemberStatus, ChatType
 
 # Inisialisasi bot
-api_id = 'YOUR_API_ID'
-api_hash = 'YOUR_API_HASH'
-bot_token = 'YOUR_BOT_TOKEN'
+api_id = '28977113'
+api_hash = '63bb64a177f438aab3bf92d7371d4f92'
+bot_token = '7169782276:AAESklIoVNdHotshUtZO4AYq7wDGq70t9qM'
 
 Bot = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
