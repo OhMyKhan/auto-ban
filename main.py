@@ -13,12 +13,11 @@ async def member_left(client: Client, event: ChatMemberUpdated):
     # Debugging: print event details
     print(f"Chat Type: {event.chat.type}")
     print(f"Old Status: {event.old_chat_member.status}")
-    print(f"New Status: {event.new_chat_member.status}")
 
     # Memastikan bahwa ini adalah sebuah channel
     if event.chat.type == "channel":
         old_status = event.old_chat_member.status
-        new_status = event.new_chat_member.status
+        new_status = event.new_chat_member.status if event.new_chat_member else None
 
         # Memeriksa apakah pengguna meninggalkan channel
         if old_status in ["member", "restricted"] and new_status in ["left", "kicked"]:
