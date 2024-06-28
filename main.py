@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 from pyrogram.types import ChatMemberUpdated
 
 # Inisialisasi bot
-api_id = 28977113  # Pastikan ini adalah integer, bukan string
+api_id = 28977113
 api_hash = '63bb64a177f438aab3bf92d7371d4f92'
 bot_token = '7169782276:AAESklIoVNdHotshUtZO4AYq7wDGq70t9qM'
 
